@@ -1,0 +1,14 @@
+wp-admin
+wp-includes
+
+wp-content
+
+.idea
+/*.php
+/*.html
+/*.txt
+
+# ignores - log files and databases
+*.log
+*.sql
+*.sqlite
