@@ -20,7 +20,7 @@ Goal: create high quality, pristine, precise code and documentation.
 
 ## Functions
 
-- [urls]
+- [URLs and Paths](./url-path.md)
 
 ## WordPress Lifecycle
 

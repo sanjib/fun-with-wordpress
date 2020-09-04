@@ -1,4 +1,4 @@
-# URL Functions
+# URLand Path Functions
 
 ```php
 // WordPress installation location
@@ -24,4 +24,8 @@ content_url();
 plugins_url($path, $plugin);
 ```
 
-
+URL and Path to "this" Plugin Directory
+```php
+plugin_dir_path(__FILE__);
+plugin_dir_url(__FILE__);
+```
