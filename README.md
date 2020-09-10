@@ -12,7 +12,7 @@ Goal: create high quality, pristine, precise code and documentation.
 - HTTP
 - HTTP
 - Settings
-- Options
+- [Options](./options.md)
 - Dashboard Widgets
 - Rewrite
 - Transients

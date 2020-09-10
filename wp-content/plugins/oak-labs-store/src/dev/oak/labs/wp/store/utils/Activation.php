@@ -12,7 +12,7 @@ class Activation {
             }
         } else {
             $newData['activated_at'] = current_time('timestamp');
-            add_option(Settings::$wpOptionActivation, $newData);
+            add_option(Settings::$wpOptionActivation, $newData, '', 'no');
         }
     }
 
@@ -24,7 +24,7 @@ class Activation {
             }
         } else {
             $newData['deactivated_at'] = current_time('timestamp');
-            add_option(Settings::$wpOptionActivation, $newData);
+            add_option(Settings::$wpOptionActivation, $newData, '', 'no');
         }
     }
 }
