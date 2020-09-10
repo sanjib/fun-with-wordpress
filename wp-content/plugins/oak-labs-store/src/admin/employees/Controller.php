@@ -1,6 +1,6 @@
 <?php
 
-namespace dev\oak\labs\wp\store\admin\categories;
+namespace oak\labs\store\admin\employees;
 
 class Controller {
 

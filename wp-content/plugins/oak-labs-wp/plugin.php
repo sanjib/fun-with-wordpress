@@ -12,7 +12,7 @@
  *
  */
 
-require_once dirname(__FILE__).'/src/Option.php';
+require_once dirname(__FILE__).'/src/Options.php';
 require_once dirname(__FILE__).'/src/Plugin.php';
 require_once dirname(__FILE__).'/src/admin/Menu.php';
 require_once dirname(__FILE__).'/src/admin/dashboard/Controller.php';

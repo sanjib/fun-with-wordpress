@@ -1,19 +1,19 @@
 <?php
 
-namespace dev\oak\labs\wp\store\admin;
+namespace oak\labs\store\admin;
 
-use dev\oak\labs\wp\store\utils\Settings;
+use oak\labs\store\Settings;
 
 class Menu {
-    public static function add() {
-        require_once dirname(__FILE__) . '/home/Controller.php';
-        require_once dirname(__FILE__) . '/customers/Controller.php';
-        require_once dirname(__FILE__) . '/categories/Controller.php';
-        require_once dirname(__FILE__) . '/employees/Controller.php';
-        require_once dirname(__FILE__) . '/orders/Controller.php';
-        require_once dirname(__FILE__) . '/products/Controller.php';
-        require_once dirname(__FILE__) . '/shippers/Controller.php';
-        require_once dirname(__FILE__) . '/suppliers/Controller.php';
+    public function add() {
+        require_once dirname(__FILE__).'/home/Controller.php';
+        require_once dirname(__FILE__).'/customers/Controller.php';
+        require_once dirname(__FILE__).'/categories/Controller.php';
+        require_once dirname(__FILE__).'/employees/Controller.php';
+        require_once dirname(__FILE__).'/orders/Controller.php';
+        require_once dirname(__FILE__).'/products/Controller.php';
+        require_once dirname(__FILE__).'/shippers/Controller.php';
+        require_once dirname(__FILE__).'/suppliers/Controller.php';
 
         add_menu_page('Oak Labs Store from oak.dev',
             'Oak Labs Store',

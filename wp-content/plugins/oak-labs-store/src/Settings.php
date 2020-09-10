@@ -1,6 +1,6 @@
 <?php
 
-namespace dev\oak\labs\wp\store\utils;
+namespace oak\labs\store;
 
 class Settings {
 
@@ -13,9 +13,6 @@ class Settings {
     public static $slugAdminMenuProducts = 'oak-labs-store-products';
     public static $slugAdminMenuShippers = 'oak-labs-store-shippers';
     public static $slugAdminMenuSuppliers = 'oak-labs-store-suppliers';
-
-    // WP OPTION
-    public static $wpOptionActivation = 'oak_labs_store_activation';
 
     // DIR / URL
     public static function dirPlugin() {

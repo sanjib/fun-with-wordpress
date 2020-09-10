@@ -34,22 +34,25 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-use dev\oak\labs\wp\store\utils\Activation;
+use oak\labs\store\Plugin;
+use oak\labs\store\admin\Menu;
 
-require_once dirname(__FILE__).'/src/dev/oak/labs/wp/store/utils/Settings.php';
+require_once dirname(__FILE__).'/src/Options.php';
+require_once dirname(__FILE__).'/src/Plugin.php';
+require_once dirname(__FILE__).'/src/Settings.php';
 
 if (is_admin()) {
     // ACTIVATION
     register_activation_hook(__FILE__, function () {
-        require_once dirname(__FILE__) . '/src/dev/oak/labs/wp/store/utils/Activation.php';
-        Activation::activate();
+        require_once dirname(__FILE__) . '/src/Options.php';
+        Plugin::activate();
     });
     // DEACTIVATION
     register_deactivation_hook(__FILE__, function () {
-        require_once dirname(__FILE__) . '/src/dev/oak/labs/wp/store/utils/Activation.php';
-        Activation::deactivate();
+        require_once dirname(__FILE__) . '/src/Options.php';
+        Plugin::deactivate();
     });
     // ADMIN MENU
-    require_once dirname(__FILE__) . '/src/dev/oak/labs/wp/store/admin/Menu.php';
-    add_action('admin_menu', ['dev\oak\labs\wp\store\admin\Menu', 'add']);
+    require_once dirname(__FILE__) . '/src/admin/Menu.php';
+    add_action('admin_menu', [new Menu(), 'add']);
 }
