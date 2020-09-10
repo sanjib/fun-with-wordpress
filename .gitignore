@@ -8,6 +8,7 @@ wp-content/*
 !wp-content/plugins
 wp-content/plugins/*
 !wp-content/plugins/oak-labs-store
+!wp-content/plugins/oak-labs-wp
 
 .idea
 /*.php
