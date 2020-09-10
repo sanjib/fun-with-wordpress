@@ -34,17 +34,22 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-use dev\oak\labs\store\utils\Activation;
+use dev\oak\labs\wp\store\utils\Activation;
 
-require_once dirname(__FILE__).'/defines.php';
+require_once dirname(__FILE__).'/src/dev/oak/labs/wp/store/utils/Settings.php';
 
 if (is_admin()) {
+    // ACTIVATION
     register_activation_hook(__FILE__, function () {
-        require_once dirname(__FILE__).'/src/dev/oak/labs/store/utils/Activation.php';
+        require_once dirname(__FILE__) . '/src/dev/oak/labs/wp/store/utils/Activation.php';
         Activation::activate();
     });
+    // DEACTIVATION
     register_deactivation_hook(__FILE__, function () {
-        require_once dirname(__FILE__).'/src/dev/oak/labs/store/utils/Activation.php';
+        require_once dirname(__FILE__) . '/src/dev/oak/labs/wp/store/utils/Activation.php';
         Activation::deactivate();
     });
+    // ADMIN MENU
+    require_once dirname(__FILE__) . '/src/dev/oak/labs/wp/store/admin/Menu.php';
+    add_action('admin_menu', ['dev\oak\labs\wp\store\admin\Menu', 'add']);
 }

@@ -7,6 +7,8 @@ if (!defined( 'WP_UNINSTALL_PLUGIN')) {
     ) );
 }
 
-require_once dirname(__FILE__).'/defines.php';
+require_once dirname(__FILE__).'/src/dev/oak/labs/wp/store/utils/Settings.php';
 
-delete_option(OAK_LABS_STORE_OPTION_ACTIVATION);
+use dev\oak\labs\wp\store\utils\Settings;
+
+delete_option(Settings::$wpOptionActivation);
