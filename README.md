@@ -6,21 +6,22 @@ Goal: create high quality, pristine, precise code and documentation.
 
 ## APIs
 
-- [Plugin - Hooks: Actions & Filters](./plugin.md)
-- Widgets
-- Shortcode
-- HTTP
-- HTTP
-- Settings
-- [Options](./options.md)
 - Dashboard Widgets
-- Rewrite
-- Transients
 - Database
-
-## Functions
-
+- HTTP
+- [Options](./options.md)
+- [Plugin - Hooks: Actions & Filters](./plugin.md)
+- Rewrite
+- Shortcode
+- Settings
+- Transients
 - [URLs and Paths](./url-path.md)
+- [User](./user.md)
+- Widgets
+
+## Code Examples
+
+- [Styling](./wp-content/plugins/oak-labs-wp/src/admin/styling/main.php)
 
 ## WordPress Lifecycle
 

@@ -5,8 +5,23 @@ namespace oak\labs\wp\admin;
 class Menu
 {
     public static $menuSlugSettingsPage = 'oak-labs-wp-settings';
+    public static $menuSlugHomePage = 'oak-labs-wp';
+    public static $menuSlugStylingPage = 'oak-labs-wp-styling';
+    public static $menuSlugUsersPage = 'oak-labs-wp-users';
+    public static $menuSlugUsersSettingsPage = 'oak-labs-wp-users-settings';
 
     public static function main() {
+        add_menu_page('Oak Labs WP - by oak.dev', 'Oak Labs WP', 'manage_options',
+            self::$menuSlugHomePage, [new home\Controller(), 'main'], 'dashicons-tickets', 100);
+
+        add_submenu_page(self::$menuSlugHomePage, 'Oak Labs WP Styling Demo - by oak.dev', 'Styling',
+            'manage_options', self::$menuSlugStylingPage, [new styling\Controller(), 'main']);
+
+        add_submenu_page(self::$menuSlugHomePage, 'Oak Labs WP Users - by oak.dev', 'Users',
+            'manage_options', self::$menuSlugUsersPage, [new users\Controller(), 'main']);
+
+        //----  ----//
+
         add_dashboard_page(
             'Extra Dashboard - by Oak Labs',
             'Extra Dashboard',
@@ -69,7 +84,7 @@ class Menu
             'Extra Users - by Oak Labs',
             'Extra Users',
             'manage_options',
-            'oak-labs-wp-users',
+            self::$menuSlugUsersSettingsPage,
             function () {
                 echo "<div class='wrap'><h1>Extra Users</h1></div>";
             });
