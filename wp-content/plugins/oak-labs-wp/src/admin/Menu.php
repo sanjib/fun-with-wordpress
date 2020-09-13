@@ -4,7 +4,9 @@ namespace oak\labs\wp\admin;
 
 class Menu
 {
-    public function main() {
+    public static $menuSlugSettingsPage = 'oak-labs-wp-settings';
+
+    public static function main() {
         add_dashboard_page(
             'Extra Dashboard - by Oak Labs',
             'Extra Dashboard',
@@ -80,12 +82,10 @@ class Menu
                 echo "<div class='wrap'><h1>Extra Tools</h1></div>";
             });
         add_options_page(
-            'Extra Settings - by Oak Labs',
-            'Extra Settings',
+            'Extra Settings for WP - by Oak Labs',
+            'Extra Settings for WP',
             'manage_options',
-            'oak-labs-wp-settings',
-            function () {
-                echo "<div class='wrap'><h1>Extra Settings</h1></div>";
-            });
+            self::$menuSlugSettingsPage,
+            [new options\Controller(), 'main']);
     }
 }

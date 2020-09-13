@@ -4,23 +4,23 @@ namespace oak\labs\wp;
 
 class Plugin {
 
-    function activate() {
-        if ($val = get_option(Options::$activation)) {
+    public static function activate() {
+        if ($val = get_option(WpOptions::$activationKey)) {
             $val['activated_on'] = current_time('timestamp');
-            update_option(Options::$activation, $val);
+            update_option(WpOptions::$activationKey, $val);
         } else {
             $val['activated_on'] = current_time('timestamp');
-            add_option(Options::$activation, $val, '', 'no');
+            add_option(WpOptions::$activationKey, $val, '', 'no');
         }
     }
 
-    function deactivate() {
-        if ($val = get_option(Options::$activation)) {
+    public static function deactivate() {
+        if ($val = get_option(WpOptions::$activationKey)) {
             $val['deactivated_on'] = current_time('timestamp');
-            update_option(Options::$activation, $val);
+            update_option(WpOptions::$activationKey, $val);
         } else {
             $val['deactivated_on'] = current_time('timestamp');
-            add_option(Options::$activation, $val, '', 'no');
+            add_option(WpOptions::$activationKey, $val, '', 'no');
         }
     }
 }
