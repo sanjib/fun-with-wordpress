@@ -34,6 +34,8 @@ class Controller {
             '/[^a-zA-Z\s]/',
             '',
             $input[self::$fieldIdSiteName] );
+
+        // ERROR
         if( $valid[self::$fieldIdSiteName] !== $input[self::$fieldIdSiteName] ) {
             add_settings_error(
                 self::$fieldIdSiteName,
