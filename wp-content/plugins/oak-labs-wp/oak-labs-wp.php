@@ -18,6 +18,7 @@ require_once dirname(__FILE__).'/src/lib/FormControls.php';
 require_once dirname(__FILE__).'/src/lib/WpApi.php';
 
 if (is_admin()) {
+    require_once dirname(__FILE__).'/src/lib/AdminPageController.php';
     require_once dirname(__FILE__).'/src/admin/Bar.php';
     require_once dirname(__FILE__).'/src/admin/Menu.php';
     require_once dirname(__FILE__).'/src/admin/dashboard/Controller.php';
@@ -25,8 +26,10 @@ if (is_admin()) {
     require_once dirname(__FILE__).'/src/admin/pages/Controller.php';
     require_once dirname(__FILE__).'/src/admin/options/Controller.php';
     require_once dirname(__FILE__).'/src/admin/home/Controller.php';
+    require_once dirname(__FILE__).'/src/admin/scratch/Controller.php';
     require_once dirname(__FILE__).'/src/admin/styling/Controller.php';
     require_once dirname(__FILE__).'/src/admin/users/Controller.php';
+    require_once dirname(__FILE__).'/src/admin/nonce/Controller.php';
 
     register_activation_hook(__FILE__, ['oak\labs\wp\Plugin', 'activate']);
     register_deactivation_hook(__FILE__, ['oak\labs\wp\Plugin', 'deactivate']);

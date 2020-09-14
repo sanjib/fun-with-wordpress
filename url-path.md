@@ -1,4 +1,8 @@
-# URLand Path Functions
+# URL and Path Functions
+
+```php
+add_query_arg(array $args, string $url);
+```
 
 ```php
 // WordPress installation location

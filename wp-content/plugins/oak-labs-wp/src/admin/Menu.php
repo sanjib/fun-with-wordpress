@@ -7,6 +7,8 @@ class Menu
     public static $menuSlugSettingsPage = 'oak-labs-wp-settings';
     public static $menuSlugHomePage = 'oak-labs-wp';
     public static $menuSlugStylingPage = 'oak-labs-wp-styling';
+    public static $menuSlugScratchPage = 'oak-labs-wp-scratch';
+    public static $menuSlugNoncePage = 'oak-labs-wp-nonce';
     public static $menuSlugUsersPage = 'oak-labs-wp-users';
     public static $menuSlugUsersSettingsPage = 'oak-labs-wp-users-settings';
 
@@ -14,11 +16,21 @@ class Menu
         add_menu_page('Oak Labs WP - by oak.dev', 'Oak Labs WP', 'manage_options',
             self::$menuSlugHomePage, [new home\Controller(), 'main'], 'dashicons-tickets', 100);
 
+        add_submenu_page(self::$menuSlugHomePage,
+            'Oak Labs Scratch - by oak.dev', 'Scratch',
+            'manage_options', self::$menuSlugScratchPage,
+            [new scratch\Controller(self::$menuSlugScratchPage), 'main']);
+
         add_submenu_page(self::$menuSlugHomePage, 'Oak Labs WP Styling Demo - by oak.dev', 'Styling',
             'manage_options', self::$menuSlugStylingPage, [new styling\Controller(), 'main']);
 
         add_submenu_page(self::$menuSlugHomePage, 'Oak Labs WP Users - by oak.dev', 'Users',
             'manage_options', self::$menuSlugUsersPage, [new users\Controller(), 'main']);
+
+        add_submenu_page(self::$menuSlugHomePage,
+            'Oak Labs Nonce - by oak.dev', 'Nonce',
+            'manage_options', self::$menuSlugNoncePage,
+            [new nonce\Controller(self::$menuSlugNoncePage), 'main']);
 
         //----  ----//
 
