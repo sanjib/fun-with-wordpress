@@ -17,6 +17,7 @@ Goal: create high quality, pristine, precise code and documentation.
 - Transients
 - [URLs and Paths](./url-path.md)
 - [User](./user.md)
+- [Validate/Sanitize](./validate_sanitize.md)
 - Widgets
 
 ## Code Examples

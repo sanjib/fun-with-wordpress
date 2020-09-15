@@ -1,8 +1,19 @@
 # URL and Path Functions
 
+### Query
+
 ```php
 add_query_arg(array $args, string $url);
 ```
+
+### Redirects
+
+```php
+- wp_safe_redirect (limits redirect to current site, call exit after)
+- wp_redirect (call exit after)
+```
+
+### URLs
 
 ```php
 // WordPress installation location
