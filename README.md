@@ -8,6 +8,7 @@ Goal: create high quality, pristine, precise code and documentation.
 
 - Dashboard Widgets
 - [Database](./db.md)
+- [Cache, Transient](./cache.md)
 - [Nonce](./nonce.md)
 - [Options](./options.md)
 - [Plugin - Hooks: Actions & Filters](./plugin.md)

@@ -31,7 +31,7 @@ class Menu {
             self::$slugAdminMenuHome,
             [new home\Controller(), 'main'],
             'dashicons-store',
-            99);
+            0);
 
         add_submenu_page(self::$slugAdminMenuHome,
             'Customers - Oak Labs Store from oak.dev',

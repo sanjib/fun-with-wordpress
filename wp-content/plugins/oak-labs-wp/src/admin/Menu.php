@@ -14,10 +14,11 @@ class Menu
     public static $menuSlugUsersPage = 'oak-labs-wp-users';
     public static $menuSlugValidateSanitizePage = 'oak-labs-wp-validate-sanitize';
     public static $menuSlugDbPage = 'oak-labs-wp-db';
+    public static $menuSlugCachePage = 'oak-labs-wp-cache';
 
     public static function main() {
         add_menu_page('Oak Labs WP - by oak.dev', 'Oak Labs WP', 'manage_options',
-            self::$menuSlugHomePage, [new home\Controller(), 'main'], 'dashicons-tickets', 100);
+            self::$menuSlugHomePage, [new home\Controller(), 'main'], 'dashicons-tickets', 1);
 
         add_submenu_page(self::$menuSlugHomePage,
             'Oak Labs Scratch - by oak.dev', 'Scratch',
@@ -44,6 +45,11 @@ class Menu
             'Oak Labs DB - by oak.dev', 'DB',
             'manage_options', self::$menuSlugDbPage,
             [new db\Controller(self::$menuSlugDbPage), 'main']);
+
+        add_submenu_page(self::$menuSlugHomePage,
+            'Oak Labs Cache - by oak.dev', 'Cache',
+            'manage_options', self::$menuSlugCachePage,
+            [new cache\Controller(self::$menuSlugCachePage), 'main']);
 
         //----  ----//
 

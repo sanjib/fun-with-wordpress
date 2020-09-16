@@ -32,10 +32,17 @@ if (is_admin()) {
     require_once dirname(__FILE__).'/src/admin/nonce/Controller.php';
     require_once dirname(__FILE__).'/src/admin/validate-sanitize/Controller.php';
     require_once dirname(__FILE__).'/src/admin/db/Controller.php';
+    require_once dirname(__FILE__).'/src/admin/cache/Controller.php';
 
     register_activation_hook(__FILE__, ['oak\labs\wp\Plugin', 'activate']);
     register_deactivation_hook(__FILE__, ['oak\labs\wp\Plugin', 'deactivate']);
+
     add_action('admin_menu', ['oak\labs\wp\admin\Menu', 'main']);
+
     add_action('admin_init', ['oak\labs\wp\admin\options\Controller', 'register']);
+    add_action('admin_init', ['oak\labs\wp\admin\cache\Controller', 'setCache']);
+    add_action('admin_init', ['oak\labs\wp\admin\cache\Controller', 'setTransient']);
+
     add_action('wp_before_admin_bar_render', ['oak\labs\wp\admin\Bar', 'addMenu']);
 }
+
