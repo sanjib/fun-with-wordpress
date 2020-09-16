@@ -16,9 +16,14 @@ require_once dirname(__FILE__).'/src/WpOptions.php';
 require_once dirname(__FILE__).'/src/Plugin.php';
 require_once dirname(__FILE__).'/src/lib/FormControls.php';
 require_once dirname(__FILE__).'/src/lib/WpApi.php';
+require_once dirname(__FILE__).'/src/lib/AdminPageController.php';
+
+// Running the hooks file here because it needs to be run "early"
+require_once dirname(__FILE__).'/src/admin/hooks/Controller.php';
+add_action('plugin_loaded', ['oak\labs\wp\admin\hooks\Controller', 'hooksPluginsLoaded']);
+add_action('init', ['oak\labs\wp\admin\hooks\Controller', 'hooksInit']);
 
 if (is_admin()) {
-    require_once dirname(__FILE__).'/src/lib/AdminPageController.php';
     require_once dirname(__FILE__).'/src/admin/Bar.php';
     require_once dirname(__FILE__).'/src/admin/Menu.php';
     require_once dirname(__FILE__).'/src/admin/dashboard/Controller.php';
@@ -42,7 +47,9 @@ if (is_admin()) {
     add_action('admin_init', ['oak\labs\wp\admin\options\Controller', 'register']);
     add_action('admin_init', ['oak\labs\wp\admin\cache\Controller', 'setCache']);
     add_action('admin_init', ['oak\labs\wp\admin\cache\Controller', 'setTransient']);
+    add_action('admin_init', ['oak\labs\wp\admin\hooks\Controller', 'hooksAdminInit']);
 
     add_action('wp_before_admin_bar_render', ['oak\labs\wp\admin\Bar', 'addMenu']);
+    add_action('wp_before_admin_bar_render', ['oak\labs\wp\admin\hooks\Controller', 'hooksWpBeforeAdminBarRender']);
 }
 

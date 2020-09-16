@@ -15,6 +15,7 @@ class Menu
     public static $menuSlugValidateSanitizePage = 'oak-labs-wp-validate-sanitize';
     public static $menuSlugDbPage = 'oak-labs-wp-db';
     public static $menuSlugCachePage = 'oak-labs-wp-cache';
+    public static $menuSlugHooksPage = 'oak-labs-wp-hooks';
 
     public static function main() {
         add_menu_page('Oak Labs WP - by oak.dev', 'Oak Labs WP', 'manage_options',
@@ -50,6 +51,11 @@ class Menu
             'Oak Labs Cache - by oak.dev', 'Cache',
             'manage_options', self::$menuSlugCachePage,
             [new cache\Controller(self::$menuSlugCachePage), 'main']);
+
+        add_submenu_page(self::$menuSlugHomePage,
+            'Oak Labs Hooks - by oak.dev', 'Hooks',
+            'manage_options', self::$menuSlugHooksPage,
+            [new hooks\Controller(self::$menuSlugHooksPage), 'main']);
 
         //----  ----//
 

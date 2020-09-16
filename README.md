@@ -62,3 +62,10 @@ For front-end (admin-end differs slightly depending on admin theme):
 - kebab case for handles: acme-sound-system-css
 
 
+## Installation Notes
+
+Standard WordPress installation steps should be followed. The only required plugin is:
+
+- UpDevTools
+
+The only reason to use it is because of its superior debugging capabilities.
