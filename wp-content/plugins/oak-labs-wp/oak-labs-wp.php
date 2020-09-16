@@ -31,6 +31,7 @@ if (is_admin()) {
     require_once dirname(__FILE__).'/src/admin/users/Controller.php';
     require_once dirname(__FILE__).'/src/admin/nonce/Controller.php';
     require_once dirname(__FILE__).'/src/admin/validate-sanitize/Controller.php';
+    require_once dirname(__FILE__).'/src/admin/db/Controller.php';
 
     register_activation_hook(__FILE__, ['oak\labs\wp\Plugin', 'activate']);
     register_deactivation_hook(__FILE__, ['oak\labs\wp\Plugin', 'deactivate']);

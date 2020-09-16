@@ -7,7 +7,7 @@ Goal: create high quality, pristine, precise code and documentation.
 ## APIs
 
 - Dashboard Widgets
-- Database
+- [Database](./db.md)
 - [Nonce](./nonce.md)
 - [Options](./options.md)
 - [Plugin - Hooks: Actions & Filters](./plugin.md)

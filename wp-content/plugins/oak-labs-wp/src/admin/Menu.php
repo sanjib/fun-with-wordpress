@@ -13,6 +13,7 @@ class Menu
     public static $menuSlugNoncePage = 'oak-labs-wp-nonce';
     public static $menuSlugUsersPage = 'oak-labs-wp-users';
     public static $menuSlugValidateSanitizePage = 'oak-labs-wp-validate-sanitize';
+    public static $menuSlugDbPage = 'oak-labs-wp-db';
 
     public static function main() {
         add_menu_page('Oak Labs WP - by oak.dev', 'Oak Labs WP', 'manage_options',
@@ -38,6 +39,11 @@ class Menu
             'Oak Labs Validate & Sanitize - by oak.dev', 'Validate & Sanitize',
             'manage_options', self::$menuSlugValidateSanitizePage,
             [new validate_sanitize\Controller(self::$menuSlugValidateSanitizePage), 'main']);
+
+        add_submenu_page(self::$menuSlugHomePage,
+            'Oak Labs DB - by oak.dev', 'DB',
+            'manage_options', self::$menuSlugDbPage,
+            [new db\Controller(self::$menuSlugDbPage), 'main']);
 
         //----  ----//
 
