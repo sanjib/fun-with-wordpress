@@ -7,8 +7,8 @@
  * Author: Sanjib Ahmad
  * Author URI: https://sanjib.org
  * Description: Dummy plugin hitchhiking to core menus.
- * License: GPL v2
  * Text Domain: oak-labs-wp
+ * License: GPL v2
  *
  */
 
@@ -38,6 +38,7 @@ if (is_admin()) {
     require_once dirname(__FILE__).'/src/admin/validate-sanitize/Controller.php';
     require_once dirname(__FILE__).'/src/admin/db/Controller.php';
     require_once dirname(__FILE__).'/src/admin/cache/Controller.php';
+    require_once dirname(__FILE__).'/src/admin/js/Controller.php';
 
     register_activation_hook(__FILE__, ['oak\labs\wp\Plugin', 'activate']);
     register_deactivation_hook(__FILE__, ['oak\labs\wp\Plugin', 'deactivate']);
@@ -48,6 +49,9 @@ if (is_admin()) {
     add_action('admin_init', ['oak\labs\wp\admin\cache\Controller', 'setCache']);
     add_action('admin_init', ['oak\labs\wp\admin\cache\Controller', 'setTransient']);
     add_action('admin_init', ['oak\labs\wp\admin\hooks\Controller', 'hooksAdminInit']);
+    add_action('admin_init', ['oak\labs\wp\admin\js\Controller', 'regEnqScript']);
+
+    add_action('plugin_loaded', ['oak\labs\wp\admin\js\Controller', 'loadPluginTextDomain']);
 
     add_action('wp_before_admin_bar_render', ['oak\labs\wp\admin\Bar', 'addMenu']);
     add_action('wp_before_admin_bar_render', ['oak\labs\wp\admin\hooks\Controller', 'hooksWpBeforeAdminBarRender']);
