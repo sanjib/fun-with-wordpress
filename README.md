@@ -9,6 +9,7 @@ Goal: create high quality, pristine, precise code and documentation.
 - Dashboard Widgets
 - [Database](./db.md)
 - [Cache, Transient](./cache.md)
+- [Gutenberg](./gutenberg.md)
 - [JavaScript](./js.md)
 - [Language](./lang.md)
 - [Nonce](./nonce.md)
@@ -22,6 +23,7 @@ Goal: create high quality, pristine, precise code and documentation.
 - [User](./user.md)
 - [Validate/Sanitize](./validate_sanitize.md)
 - Widgets
+- [WP CLI](./wp-cli.md)
 
 ## Code Examples
 
