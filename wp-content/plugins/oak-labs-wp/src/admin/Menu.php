@@ -17,6 +17,8 @@ class Menu
     public static $menuSlugCachePage = 'oak-labs-wp-cache';
     public static $menuSlugHooksPage = 'oak-labs-wp-hooks';
     public static $menuSlugJsPage = 'oak-labs-wp-js';
+    public static $menuSlugContentPage = 'oak-labs-wp-content';
+    public static $menuSlugBooksPage = 'oak-labs-wp-books';
 
     public static function main() {
         add_menu_page('Oak Labs WP - by oak.dev', 'Oak Labs WP', 'manage_options',
@@ -62,6 +64,16 @@ class Menu
             'Oak Labs JavaScript - by oak.dev', 'JavaScript',
             'manage_options', self::$menuSlugJsPage,
             [new js\Controller(self::$menuSlugJsPage), 'main']);
+
+        add_submenu_page(self::$menuSlugHomePage,
+            'Oak Labs Content - by oak.dev', 'Content',
+            'manage_options', self::$menuSlugContentPage,
+            [new content\Controller(self::$menuSlugContentPage), 'main']);
+
+        add_submenu_page(self::$menuSlugHomePage,
+            'Oak Labs Books - by oak.dev', 'Books',
+            'manage_options', self::$menuSlugBooksPage,
+            [new books\Controller(self::$menuSlugBooksPage), 'main']);
 
         //----  ----//
 

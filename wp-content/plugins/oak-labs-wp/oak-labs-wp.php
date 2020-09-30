@@ -23,6 +23,14 @@ require_once dirname(__FILE__).'/src/admin/hooks/Controller.php';
 add_action('plugin_loaded', ['oak\labs\wp\admin\hooks\Controller', 'hooksPluginsLoaded']);
 add_action('init', ['oak\labs\wp\admin\hooks\Controller', 'hooksInit']);
 
+require_once dirname(__FILE__).'/src/admin/books/Controller.php';
+add_action('init', ['oak\labs\wp\admin\books\Controller', 'registerPostTypeBook']);
+add_action('init', ['oak\labs\wp\admin\books\Controller', 'registerPostMetaBook']);
+add_action('add_meta_boxes_book', ['oak\labs\wp\admin\books\Controller', 'addMetaBoxBook']);
+add_action('save_post_book', ['oak\labs\wp\admin\books\Controller', 'savePostBook']);
+add_action('init', ['oak\labs\wp\admin\books\Controller', 'registerTaxonomyBook']);
+
+
 if (is_admin()) {
     require_once dirname(__FILE__).'/src/admin/Bar.php';
     require_once dirname(__FILE__).'/src/admin/Menu.php';
@@ -39,6 +47,7 @@ if (is_admin()) {
     require_once dirname(__FILE__).'/src/admin/db/Controller.php';
     require_once dirname(__FILE__).'/src/admin/cache/Controller.php';
     require_once dirname(__FILE__).'/src/admin/js/Controller.php';
+    require_once dirname(__FILE__).'/src/admin/content/Controller.php';
 
     register_activation_hook(__FILE__, ['oak\labs\wp\Plugin', 'activate']);
     register_deactivation_hook(__FILE__, ['oak\labs\wp\Plugin', 'deactivate']);
