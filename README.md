@@ -9,6 +9,7 @@ Goal: create high quality, pristine, precise code and documentation.
 - Dashboard Widgets
 - [Database](./db.md)
 - [Cache, Transient](./cache.md)
+- [Content](./content.md)
 - [Gutenberg](./gutenberg.md)
 - [JavaScript](./js.md)
 - [Language](./lang.md)
@@ -73,3 +74,11 @@ Standard WordPress installation steps should be followed. The only required plug
 - UpDevTools
 
 The only reason to use it is because of its superior debugging capabilities.
+
+## WordPress Example Sites
+
+- private membership sites
+- social networks
+- online journalism
+- medical databases
+- education centers

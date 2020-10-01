@@ -2,6 +2,19 @@
     <h1>Oak Labs WP - Users</h1>
 
     <?php
+    $user = new WP_User(1);
+    d($user);
+
+    $user = get_userdata(1);
+    d($user);
+
+    $user = wp_get_current_user();
+    d($user);
+
+
+    ?>
+
+    <?php
     $capabilities = [
         'manage_options',
         'remove_user', 'promote_user', 'add_users', 'edit_user', 'edit_users', 'delete_post', 'delete_page',
