@@ -13,7 +13,6 @@ wp-content/plugins/oak-labs-gutenberg/npm/node_modules
 !wp-content/plugins/oak-labs-store
 !wp-content/plugins/oak-labs-wp
 !wp-content/plugins/oak-starter
-wp-content/plugins/UpDevTools
 
 .idea
 /*.php
