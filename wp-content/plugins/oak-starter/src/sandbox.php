@@ -22,5 +22,5 @@ add_action('loop_start', __NAMESPACE__.'\demo');
  *
  */
 function demo() {
-	d(get_the_ID());
+//	d(get_the_ID());
 }

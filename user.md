@@ -1,12 +1,38 @@
 # User
 
+Capabilities
+(check for capability, not role) 
+
 ```php
-current_user_can($capability)
+current_user_can( $capability, ...$args );
+user_can( $user, $capability, ...$args );
+author_can( $post, $capability, ...$args );
 ```
 
-For **$capability**, see [here](./wp-content/plugins/oak-labs-wp/src/admin/users/main.php) 
+For $capability, see [here](./wp-content/plugins/oak-labs-wp/src/admin/users/main.php) 
+
+current_user_can() is a wrapper for user_can()
+
+Roles: Add roles during activation hook, as they only need to be added once
+
+```php
+add_role( $role, $display_name, $capabilities = array() );
+remove_role( $role );
+get_role( $role );
+
+
+$wpRole = get_role($role);
+$wpRole->add_cap( $cap, $grant = true );
+$wpRole->remove_cap( $cap );
+```
+
+- remove_role() will also remove the role from all users in database who are assigned to the role
+- add_role() will automatically assign role to all users who previously had the role (possibly the relation is never removed from the database in the first place)
+- to deny cap, set $grant = false
+
 
 User Functions
+
 ```php
 is_user_logged_in();
 get_users($args = array());
@@ -60,10 +86,27 @@ User Data
 - user_registered
 - display_name
 
+User Object
+
 ```php
 $user = new WP_User(1);
 $user = get_userdata(1);
 $user = wp_get_current_user();
+```
+
+Count User Posts
+```php
+count_user_posts($userid, $post_type='post', $public_only=false);
+count_many_users_posts($users, $post_type='post', $public_only=false);
+```
+
+User Metadata
+
+```php
+add_user_meta( $user_id, $meta_key, $meta_value, $unique = false );
+update_user_meta( $user_id, $meta_key, $meta_value, $prev_value = '' );
+get_user_meta( $user_id, $key = '', $single = false );
+delete_user_meta( $user_id, $meta_key, $meta_value = '' );
 ```
 
 Notes

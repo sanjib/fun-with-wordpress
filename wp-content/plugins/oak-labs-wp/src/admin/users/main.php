@@ -2,14 +2,29 @@
     <h1>Oak Labs WP - Users</h1>
 
     <?php
-    $user = new WP_User(1);
-    d($user);
+    // GET USER OBJECT
+    /*
+    $currentUserObj = wp_get_current_user();
+    d($currentUserObj);
+    $wpUserObj = new WP_User($currentUserObj->ID);
+    d($wpUserObj);
+    $userDataObj = get_userdata(1);
+    d($userDataObj);
+    */
 
-    $user = get_userdata(1);
-    d($user);
 
+    // COUNT USER POSTS
+    /*
+    d(count_user_posts($userDataObj->ID));
+    */
+
+
+    // USER METADATA
+    /*
     $user = wp_get_current_user();
-    d($user);
+    add_user_meta($user->ID, 'foo', 'bar');
+    delete_user_meta($user->ID, 'foo');
+    */
 
 
     ?>
@@ -18,7 +33,7 @@
     $capabilities = [
         'manage_options',
         'remove_user', 'promote_user', 'add_users', 'edit_user', 'edit_users', 'delete_post', 'delete_page',
-        'edit_post', 'edit_page', 'read_post', 'read_page', 'publish_post', 'edit_post_meta', 'delete_post_meta',
+        'edit_post', 'edit_page', 'read_post', 'read_page', 'publish_post', 'publish_posts', 'edit_post_meta', 'delete_post_meta',
         'add_post_meta', 'edit_comment_meta', 'delete_comment_meta', 'add_comment_meta', 'edit_term_meta',
         'delete_term_meta', 'add_term_meta', 'edit_user_meta', 'delete_user_meta', 'add_user_meta', 'edit_comment',
         'unfiltered_upload', 'edit_css', 'unfiltered_html', 'edit_files', 'edit_plugins', 'edit_themes',
@@ -59,7 +74,6 @@
         <?php $i=0; foreach ($capabilities as $capability): $i++; ?>
             <tr>
                 <td><?= $i ?></td>
-                <td><?= $capability ?></td>
                 <?php if (
                         ($capability == 'add_comment_meta') ||
                         ($capability == 'add_post_meta') ||
@@ -70,8 +84,10 @@
                         ($capability == 'read_page') ||
                         ($capability == 'read_post')
                 ): ?>
+                    <td><?= $capability ?>, post_id: 1</td>
                     <td><?= current_user_can($capability, 1) ? "yes" : "no" ?></td>
                 <?php else: ?>
+                    <td><?= $capability ?></td>
                     <td><?= current_user_can($capability) ? "yes" : "no" ?></td>
                 <?php endif ?>
             </tr>

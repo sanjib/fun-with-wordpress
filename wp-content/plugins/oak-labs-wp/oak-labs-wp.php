@@ -48,6 +48,7 @@ if (is_admin()) {
     require_once dirname(__FILE__).'/src/admin/cache/Controller.php';
     require_once dirname(__FILE__).'/src/admin/js/Controller.php';
     require_once dirname(__FILE__).'/src/admin/content/Controller.php';
+    require_once dirname(__FILE__).'/src/admin/roles/Controller.php';
 
     register_activation_hook(__FILE__, ['oak\labs\wp\Plugin', 'activate']);
     register_deactivation_hook(__FILE__, ['oak\labs\wp\Plugin', 'deactivate']);
